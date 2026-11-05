@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate catalogue
+        run: npm run validate
+      - name: Unit tests
+        run: npm test
+      - name: No inline script or style (CSP guard)
+        run: |
+          if grep -nE '<script(\s[^>]*)?>\s*[^<[:space:]]|<style|\son[a-z]+="|style="' index.html; then
+            echo "Inline script/style/event handler found: the CSP forbids it."; exit 1
+          fi

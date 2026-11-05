@@ -1,0 +1,12 @@
+name: Suggest a tool
+description: Propose a new tool for the catalogue
+labels: [data, enhancement]
+body:
+  - type: input
+    id: url
+    attributes: { label: Tool URL, placeholder: https://example.com }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: What indicator types does it accept, and does it need an account or contact the target? }
+    validations: { required: true }

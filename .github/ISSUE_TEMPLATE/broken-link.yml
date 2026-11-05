@@ -1,0 +1,15 @@
+name: Broken or wrong link
+description: A tool's link is dead, moved, or builds the wrong URL for an indicator
+labels: [data]
+body:
+  - type: input
+    id: tool
+    attributes: { label: Tool (id or name), placeholder: shodan }
+    validations: { required: true }
+  - type: input
+    id: indicator
+    attributes: { label: Indicator you entered (use a harmless example), placeholder: 8.8.8.8 }
+  - type: textarea
+    id: expected
+    attributes: { label: What happened vs. what should happen, description: "Include the URL you landed on and the one you expected." }
+    validations: { required: true }
