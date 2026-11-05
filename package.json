@@ -1,0 +1,16 @@
+{
+  "name": "osint-dashboard",
+  "version": "3.0.0",
+  "description": "Analyst console that turns one indicator into lookups across 270+ OSINT and threat-intel tools. Zero build, zero dependencies.",
+  "private": true,
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test tests/",
+    "validate": "node scripts/validate-data.js",
+    "check-links": "node scripts/check-links.js",
+    "serve": "python3 -m http.server 8080",
+    "ci": "npm run validate && npm test"
+  },
+  "engines": { "node": ">=18" }
+}
